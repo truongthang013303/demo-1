@@ -1,0 +1,26 @@
+package com.example.demo1.service;
+
+import java.util.List;
+
+import org.springframework.data.domain.Pageable;
+
+import com.example.demo1.dto.NewDTO;
+
+public interface INewService {
+
+	List<NewDTO> findByTitleContaining(String searchWord);
+
+	List<NewDTO> findAll();
+
+	void delete(long[] ids);
+
+	NewDTO saveOrUpdate(NewDTO dto);
+
+	List<NewDTO> findAllByCategoryCode(String cateCode, Pageable pageable);
+
+	NewDTO findById(long id);
+
+	int getTotalItem();
+
+	List<NewDTO> findAll(Pageable pageable);
+}

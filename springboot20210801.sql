@@ -1,4 +1,4 @@
-CREATE DATABASE IF NOT EXISTS `springboot` 
+CREATE DATABASE IF NOT EXISTS `springboot`;
 USE `springboot`;
 -- MySQL dump 10.13  Distrib 8.0.23, for Win64 (x86_64)
 --

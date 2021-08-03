@@ -3,6 +3,7 @@
 layout:decorate="~{/admin/adminLayout.html}" >
 <head>
 <title>Chỉnh sửa</title>
+<script th:src="@{/global/ckeditor/ckeditor.js}"></script>
 </head>
 <body>
 	<div class="page-content" layout:fragment="content">	
@@ -62,7 +63,7 @@ layout:decorate="~{/admin/adminLayout.html}" >
 							<textarea th:field="*{content}" id="content" cols="100" rows="10"></textarea>
 						</div>
 					</div>
-
+					
 					<input type="hidden" th:field="*{id}" id="newId" />
 
 					<div class="clearfix form-actions">
@@ -114,10 +115,11 @@ $("#formSubmit").validate({
     },});
 </script>
 		<script>
-		var editor ='';
+ 		var editor ='';
 		$(document).ready(function(){
 			editor = CKEDITOR.replace('content');
 		});
+
 		function callAJAX()
 		{   
 		    	        var formData = new FormData($("#formSubmit")[0]);
@@ -158,11 +160,11 @@ $("#formSubmit").validate({
 		            data: JSON.stringify(data),
 		            dataType: 'json',
 		            success: function (result) {
-		            	alert("Thanh cong");
+		            	alert("Thành công");
 		            	window.location.href = "/quantri/baiviet/chinhsua?id="+result.id+"&message=insert_success";
 		            },
 		            error: function (error) {
-		            	alert("That bai");
+		            	alert("Thất bại mời thử lại");
 		            	window.location.href = "/quantri/baiviet/chinhsua?message=error_system";	
 		            }
 		        });
@@ -176,9 +178,11 @@ $("#formSubmit").validate({
 		            data: JSON.stringify(data),
 		            dataType: 'json',
 		            success: function (result) {
+		            	alert("Thành công");
 		            	window.location.href = "/quantri/baiviet/chinhsua?id="+result.id+"&message=insert_success";
 		            },
 		            error: function (error) {
+		            	alert("Thất bại mời thử lại");
 		            	window.location.href = "/quantri/baiviet/chinhsua?message=error_system";
 		            }
 		        });

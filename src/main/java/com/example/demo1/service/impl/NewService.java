@@ -49,6 +49,12 @@ public class NewService implements INewService {
 	public int getTotalItem() {
 		return (int) newRepository.count();
 	}
+	
+	@Override
+	public int getTotalItemByCategory_id(long categoryId) 
+	{
+		return (int) newRepository.countByCategory_id(categoryId);
+	}
 
 	@Override
 	public NewDTO findById(long id) {
@@ -121,5 +127,11 @@ public class NewService implements INewService {
 			listNewDTO.add(newConverter.toDto(newEntity));
 		}
 		return listNewDTO;
+	}
+	
+	@Override
+	public int countByCategory_id(long categoryid)
+	{
+		return newRepository.countByCategory_id(categoryid);
 	}
 }

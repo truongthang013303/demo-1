@@ -43,6 +43,7 @@ layout:decorate="~{/admin/adminLayout.html}" >
 						<div class="table-responsive">
 						<!-- <div th:text="${#dates.createNow()}"></div> -->
 						<div>
+							<th:block th:unless="${catecode}">
 							<select name="sort" id="sort">
 								<!-- <option value="#" selected>---Sắp xếp theo---</option> -->
 								<option value="createdDate-DESC">Mới nhất</option>
@@ -50,6 +51,7 @@ layout:decorate="~{/admin/adminLayout.html}" >
 								<option value="modifiedDate-DESC">Chỉnh sửa gần đây nhất</option>
 								<option value="${sort}" selected>[[${sort}]]</option>
 							</select>
+							</th:block>
 						</div>
 						<div style="height: 30px"></div>
 <!-- 						<div>
@@ -83,7 +85,12 @@ layout:decorate="~{/admin/adminLayout.html}" >
 							<h4 th:text="'Sort:'+${sort}"></h4>
 							<nav aria-label="Pagination">
 	                        <hr class="my-0" />
-								<ul class="pagination justify-content-center my-4">
+	                        	<ul th:if="${catecode}" class="pagination justify-content-center my-4" >
+	                        			<th:block th:each="item, state:${#numbers.sequence(1,model.totalPage)}">
+	                        				<li class="page-item"><a th:href="@{/quantri/(catecode=${catecode}, cateid=${cateid}, page=${item},limit=2,sort=${sort})}" th:text="${item}" class="page-link"></a></li>
+	                        			</th:block>
+	                        	</ul>
+								<ul th:unless="${catecode}" class="pagination justify-content-center my-4">
 									<li class="page-item"><a th:if="${model.page>1}" th:href="@{/quantri/baiviet/danhsach(page=${1},limit=2)}">First</a></li>
 									<li class="page-item"><span th:unless="${model.page>1}" >First</span></li>
 									<li class="page-item"><a th:if="${model.page>1}" th:href="@{/quantri/baiviet/danhsach(page=${model.page-1},limit=2)}">Previous</a></li>

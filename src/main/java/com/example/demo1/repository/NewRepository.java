@@ -15,5 +15,6 @@ public interface NewRepository extends JpaRepository<NewEntity, Long>
 	NewEntity findOneById(Long id);	
 	Page<NewEntity> findAllByCategoryCode(String cateCode,Pageable pageable);	
 	boolean existsByTitle(String title);
+	int countByCategory_id(long Category_id);
 }
 

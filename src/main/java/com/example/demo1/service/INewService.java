@@ -23,4 +23,8 @@ public interface INewService {
 	int getTotalItem();
 
 	List<NewDTO> findAll(Pageable pageable);
+
+	int countByCategory_id(long categoryid);
+
+	int getTotalItemByCategory_id(long categoryId);
 }

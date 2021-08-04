@@ -8,7 +8,8 @@ import com.example.demo1.repository.CategoryRepository;
 import com.example.demo1.utils.UpLoadFileUtils;
 
 @Component
-public class NewConverter {
+public class NewConverter 
+{
 	@Autowired
 	private CategoryRepository categoryRepository;
 	@Autowired

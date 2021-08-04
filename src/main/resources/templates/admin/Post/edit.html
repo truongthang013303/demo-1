@@ -88,9 +88,6 @@ $("#formSubmit").validate({
     	categoryCode: {
             required: true
         },
-        thumbnail:{
-        	required: true
-        },
         title: {
             required: true,
             minlength: 10,
@@ -143,10 +140,12 @@ $("#formSubmit").validate({
 		    		    } else if(img.src.endsWith('.jpg')==true)
 		    		    	{
 		    		    	 		data['thumbnail']=src.substring(src.lastIndexOf("/")+1);
+		    		    	 		//console.log(data);
 		    		    	    	updateNew(data);
 		    		    	}
 		    		    	else
 		    		    	{
+		    		    		//console.log(data);
 		    		    		updateNew(data);
 		    		    	}
 		    	    
@@ -178,7 +177,7 @@ $("#formSubmit").validate({
 		            data: JSON.stringify(data),
 		            dataType: 'json',
 		            success: function (result) {
-		            	alert("Thành công");
+		            	alert("Success, please refesh images folder");
 		            	window.location.href = "/quantri/baiviet/chinhsua?id="+result.id+"&message=insert_success";
 		            },
 		            error: function (error) {

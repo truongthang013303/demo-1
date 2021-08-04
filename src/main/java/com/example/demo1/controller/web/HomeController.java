@@ -147,10 +147,10 @@ public class HomeController
 		if ( rqMess != null) 
 		{
 			Map<String, String> message = messageUtil.getMessage(rqMess);
-			mav.addObject("message", message.get("message"));
-			mav.addObject("alert", message.get("alert"));
+			userDTO.setMessage(message.get("message"));	
+			userDTO.setAlert(message.get("alert"));
 		}
-		mav.addObject("user", userDTO);
+		mav.addObject("model", userDTO);
 		return mav;
 	}
 	

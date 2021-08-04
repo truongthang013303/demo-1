@@ -15,14 +15,14 @@ layout:decorate="~{/admin/adminLayout.html}" >
 					<div class="form-group">
 						<label class="col-sm-3 control-label no-padding-right">Name</label>
 						<div class="col-sm-9">
-							<input th:field="*{name}" type="text" class="col-xs-10 col-sm-5"/>
+							<input th:field="*{name}" type="text" class="col-xs-10 col-sm-5" placeholder="Thời sự, Khoa học..."/>
 						</div>
 						<p><span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span></p>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-3 control-label no-padding-right">Code</label>
 						<div class="col-sm-9">
-							<input type="text" th:field="*{code}" class="col-xs-10 col-sm-5"></input>
+							<input type="text" th:field="*{code}" class="col-xs-10 col-sm-5" placeholder="thoi-su, khoa-hoc ..."></input>
 						</div>
 						<span th:if="${#fields.hasErrors('code')}" th:errors="*{code}"></span>
 					</div>

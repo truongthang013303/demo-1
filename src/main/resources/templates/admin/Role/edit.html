@@ -15,14 +15,14 @@ layout:decorate="~{/admin/adminLayout.html}" >
 					<div class="form-group">
 						<label class="col-sm-3 control-label no-padding-right">Name</label>
 						<div class="col-sm-9">
-							<input th:field="*{name}" type="text" class="col-xs-10 col-sm-5" />
+							<input th:field="*{name}" type="text" class="col-xs-10 col-sm-5" placeholder="Quản trị1, Quản trị2 ..."/>
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label class="col-sm-3 control-label no-padding-right">Code</label>
 						<div class="col-sm-9">
-							<input type="text" th:field="*{code}" class="col-xs-10 col-sm-5"></input>
+							<input type="text" th:field="*{code}" class="col-xs-10 col-sm-5" placeholder="ADMIN1, ADMIN2 ..."></input>
 						</div>
 					</div>
 					<input type="hidden" th:field="*{id}" id="roleId" />

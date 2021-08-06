@@ -66,7 +66,7 @@ public class RoleService implements IRoleService
 		}
 		else if(roleRepository.existsByCode(dto.getCode())==false) //roleRepository.findExistByCode(dto.getCode())==0
 		{
-			//roleEntity = roleConverter.toEntity(dto);
+			roleEntity = roleConverter.toEntity(dto);
 			System.out.println("Chua ton tai");
 		}
 		else

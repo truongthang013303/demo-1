@@ -3,6 +3,8 @@ package com.example.demo1.service.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 /*import org.springframework.security.crypto.password.PasswordEncoder;*/
@@ -18,6 +20,7 @@ import com.example.demo1.service.IUserService;
 @Service
 public class UserService implements IUserService
 {
+	private static final Logger logger = LogManager.getLogger(UserService.class);
 	@Autowired
 	private UserRepository userRepository;
 
@@ -80,6 +83,7 @@ public class UserService implements IUserService
 	{
 		for (long id : ids) 
 		{
+			logger.warn("Deleted user with username:" + id);	
 			userRepository.deleteById(id);
 		}
 		

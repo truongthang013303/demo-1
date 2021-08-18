@@ -71,7 +71,7 @@ public class CategoryService implements ICategoryService {
 			CategoryEntity oldUser = categoryRepository.findOneById(dto.getId());
 			categoryEntity = categoryConverter.toEntity(oldUser,dto);	
 		}
-		else if(categoryRepository.existsByCode(dto.getCode())==false)//categoryRepository.findExistByCode(dto.getCode())==0
+		else if(dto.getId()==null && categoryRepository.existsByCode(dto.getCode())==false)//categoryRepository.findExistByCode(dto.getCode())==0
 		{
 			categoryEntity = categoryConverter.toEntity(dto);	
 		}
